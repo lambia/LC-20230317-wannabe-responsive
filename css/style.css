@@ -190,3 +190,10 @@ Cambio stili ultima sezione solo mobile
         padding: 3rem 0;
     }
 }
+
+/* BONUS scrollbar */
+@media only screen and (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
