@@ -128,55 +128,44 @@ img {
 /************************************************
     SOLUZIONE RESPONSIVE
 
-    Approccio graduale alle problelmatiche:
+    Approccio graduale alle problematiche:
     1. Container larghezza fissa
     2. Rendere fruibili i contenuti
  ************************************************/
 
-/*
-1. Tablet 768px
-
-Primo adattamento necessario
-Rendere il container fluido
-*/
-@media only screen and (max-width: 768px) {
+/* Fix per larghezza container da tablet in giù */
+@media screen and (max-width: 768px) {
     .container {
         width: 100%;
     }
 }
 
-/*
-2. Mobile 480px
+/* Fix per larghezza container da tablet in su (BONUS) */
+@media screen and (min-width: 768px) and (max-width: 1160px) {
+    .container {
+        width: 100%;
+    }
+}
 
-Secondo adattamento necessario
-Rendere i contenuti fruibili anche da mobile
-Cambio stili ultima sezione solo mobile
-*/
-@media only screen and (max-width: 480px) {
-    /* 1. elemento padre */
+@media screen and (max-width: 480px) {
     .row {
-        /* oppure display: block; */
         flex-direction: column;
     }
 
-    /* 2. elementi figli */
     .lessons .col,
     .steps .col,
     .why-us .col {
         width: 100%;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem; /* 16 * 4 = 64px */
     }
-    /* Rimuovi spaziatura bottom sulle ultime
-    colonne di una sezione */
+
     .lessons .col:last-child,
     .steps .col:last-child,
     .why-us .col:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
 
-    /*
-    3. stili specifici a una specifica sezione
-    */
+    /* i margin diventano padding per aiutarci col background */
     .steps {
         margin-bottom: 0;
     }
@@ -184,13 +173,7 @@ Cambio stili ultima sezione solo mobile
     .why-us {
         background: #222;
         margin-bottom: 0;
-        padding: 3rem 0;
-    }
-}
-
-/* BONUS scrollbar */
-@media only screen and (min-width: 768px) {
-    .container {
-        width: 100%;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 }
